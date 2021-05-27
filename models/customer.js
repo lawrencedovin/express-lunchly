@@ -10,9 +10,28 @@ class Customer {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.fullName = this.fullName();
     this.phone = phone;
     this.notes = notes;
+  }
+
+  /** methods for getting/setting notes (keep as empty string, not NULL) */
+
+  set notes(val) {
+    this._notes = val || "";
+  }
+
+  get notes() {
+    return this._notes;
+  }
+
+  /** methods for getting/setting phone #. */
+
+  set phone(val) {
+    this._phone = val || null;
+  }
+
+  get phone() {
+    return this._phone;
   }
 
   /** find all customers. */
@@ -54,6 +73,12 @@ class Customer {
     return new Customer(customer);
   }
 
+  /** property to get full name. */
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
   /** get all reservations for this customer. */
 
   async getReservations() {
@@ -79,16 +104,6 @@ class Customer {
       );
     }
   }
-
-  fullName() {
-    return `${this.firstName} ${this.lastName}`;
-  }
-
-  /** property to get full name. */
-
-  // get fullName() {
-  //   return `${this.firstName} ${this.lastName}`;
-  // }
 }
 
 module.exports = Customer;
