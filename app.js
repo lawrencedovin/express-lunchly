@@ -7,8 +7,11 @@ const routes = require("./routes");
 
 const app = express();
 
-// Parse body for urlencoded (non-JSON) data
+// Parse body for x-www-form-urlencoded (non-JSON) data
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// Parse application/JSON data
+app.use(bodyParser.json());
 
 nunjucks.configure("templates", {
   autoescape: true,
