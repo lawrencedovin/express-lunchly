@@ -10,6 +10,7 @@ class Customer {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
+    this.fullName = this.fullName();
     this.phone = phone;
     this.notes = notes;
   }
@@ -78,6 +79,16 @@ class Customer {
       );
     }
   }
+
+  fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  /** property to get full name. */
+
+  // get fullName() {
+  //   return `${this.firstName} ${this.lastName}`;
+  // }
 }
 
 module.exports = Customer;
